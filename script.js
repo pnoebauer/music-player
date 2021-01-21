@@ -119,7 +119,17 @@ function updateProgressBar(event) {
     }
 }
 
+// Set Progress Bar
+function setProgressBar(event) {
+    const width = this.clientWidth; //width of the bar
+    const clickX = event.offsetX;   //where in the bar the click occurred
+    const { duration } = music;
+    music.currentTime = duration * clickX / width;
+
+}
+
 // Event Listeners
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
 music.addEventListener('timeupdate', updateProgressBar);
+progressContainer.addEventListener('click', setProgressBar);
