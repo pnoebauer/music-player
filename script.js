@@ -125,11 +125,11 @@ function setProgressBar(event) {
     const clickX = event.offsetX;   //where in the bar the click occurred
     const { duration } = music;
     music.currentTime = duration * clickX / width;
-
 }
 
 // Event Listeners
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
+music.addEventListener('ended', nextSong);
 music.addEventListener('timeupdate', updateProgressBar);
 progressContainer.addEventListener('click', setProgressBar);
